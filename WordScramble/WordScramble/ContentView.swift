@@ -1,0 +1,218 @@
+//
+//  ContentView.swift
+//  WordScramble
+//
+//  Created by 문준민 on 11/11/26.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    @State private var usedWords = [String]()
+    @State private var rootWord = ""
+    @State private var newWord = ""
+    
+    @State private var userName = ""
+    @State private var isNameConfirmed = false
+    @FocusState private var focusedField: FocusField?
+    
+    @State private var score = 0
+    
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
+    @State private var showingError = false
+    
+    enum FocusField: Hashable {
+        case name
+        case word
+    }
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                Section("Player Name") {
+                    if !isNameConfirmed {
+                        TextField("Enter your name", text: $userName)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.never)
+                            .onSubmit(settingName)
+                            .focused($focusedField, equals: .name)
+                        
+                    } else {
+                        HStack {
+                            Text(userName.uppercased())
+                            
+                            Spacer()
+                            
+                            Button {
+                                changeName()
+                            }
+                            label: {
+                                Image(systemName: "pencil")
+                                    .foregroundStyle(.gray)
+                                    .symbolEffect(.wiggle)
+                            }
+                            .buttonStyle(.borderless)
+                            .accessibilityLabel("Edit player name")
+                        }
+                    }
+                }
+                
+                Section("Score") {
+                    Text("\(score)")
+                }
+                
+                Section {
+                    TextField("Enter your word", text: $newWord)
+//                        .disabled(!isNameConfirmed)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .onSubmit(addNewWord)
+                        .focused($focusedField, equals: .word)
+                }
+                
+                Section {
+                    ForEach(usedWords, id: \.self) { word in
+                        HStack {
+                                Image(systemName: "\(word.count).lane")
+                                Text(word)
+                        }
+                    }
+                }
+            }
+            .navigationTitle(rootWord)
+            .onAppear(perform: startGame)
+            .toolbar {
+                Button("Restart") {
+                    startGame()
+                    usedWords.removeAll()
+                    score = 0
+                    newWord = ""
+                }
+            }
+            .alert(errorTitle, isPresented: $showingError) {
+                Button("OK") {
+                    newWord = ""
+                    focusedField = .word
+                }
+            } message: {
+                Text(errorMessage)
+            }
+            
+        }
+    }
+    
+    func addNewWord() {
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard answer.count > 2 else {
+            wordError(title: "Word is too short", message: "Be more longer")
+            return
+        }
+        
+        guard answer != rootWord else {
+            wordError(title: "Word is same at rootWord", message: "Try different word")
+            return
+        }
+        
+        guard isOriginal(word: answer) else {
+            wordError(title: "Word used already", message: "Be more original")
+            return
+        }
+
+        guard isPossible(word: answer) else {
+            wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+            return
+        }
+
+        guard isReal(word: answer) else {
+            wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+            return
+        }
+        
+        withAnimation {
+            usedWords.insert(answer, at: 0)
+            score += answer.count + usedWords.count
+        }
+        newWord = ""
+        focusedField = .word
+    }
+    
+    func settingName() {
+        let trimmedName = userName.uppercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard !trimmedName.isEmpty else {
+            return
+        }
+        
+        userName = trimmedName
+        isNameConfirmed = true
+        focusedField = .word
+    }
+    
+    func changeName() {
+        isNameConfirmed = false
+        focusedField = .name
+    }
+    
+    func startGame() {
+        // 1. Find the URL for start.txt in our app bundle
+        if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
+            // 2. Load start.txt into a string
+            if let startWords = try? String(contentsOf: startWordsURL, encoding: .utf8) {
+                // 3. Split the string up into an array of strings, splitting on line breaks
+                let allWords = startWords.components(separatedBy: "\n")
+
+                // 4. Pick one random word, or use "silkworm" as a sensible default
+                rootWord = allWords.randomElement() ?? "silkworm"
+
+                // If we are here everything has worked, so we can exit
+                return
+            }
+        }
+
+        // If were are *here* then there was a problem – trigger a crash and report the error
+        fatalError("Could not load start.txt from bundle.")
+    }
+    
+    
+    func isOriginal(word: String) -> Bool {
+        !usedWords.contains(word)
+    }
+    
+    func isPossible(word: String) -> Bool {
+        var tempWord = rootWord
+
+        for letter in word {
+            if let pos = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: pos)
+            } else {
+                return false
+            }
+        }
+
+        return true
+    }
+    
+    func isReal(word: String) -> Bool {
+        let checker = UITextChecker()
+        let range = NSRange(
+            word.startIndex..<word.endIndex,
+            in: word
+        )
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+
+        return misspelledRange.location == NSNotFound
+    }
+    
+    func wordError(title: String, message: String) {
+        errorTitle = title
+        errorMessage = message
+        showingError = true
+    }
+
+}
+
+#Preview {
+    ContentView()
+}

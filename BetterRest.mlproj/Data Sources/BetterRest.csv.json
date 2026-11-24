@@ -1,0 +1,120 @@
+{
+  "activityEntities" : [
+    "dataSourceMetrics",
+    [
+      {
+        "createdDate" : "2026-11-09T01:58:56Z",
+        "event" : "dataSourceMetrics",
+        "id" : "EEE192EC-DB6E-48FD-8031-26811DD14FB4",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      },
+      {
+        "createdDate" : "2026-11-09T04:14:30Z",
+        "event" : "dataSourceMetrics",
+        "id" : "D015D4A9-4B4B-4659-9F6C-8BA0EC1D7F4E",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      },
+      {
+        "createdDate" : "2026-11-09T04:14:54Z",
+        "event" : "dataSourceMetrics",
+        "id" : "FD603C94-8595-4BE6-8531-E0B5AB09D0AB",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      },
+      {
+        "createdDate" : "2026-11-09T04:15:07Z",
+        "event" : "dataSourceMetrics",
+        "id" : "2253A754-F83C-4F88-907A-599BFD918C83",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      },
+      {
+        "createdDate" : "2026-11-09T04:15:17Z",
+        "event" : "dataSourceMetrics",
+        "id" : "865DB5E2-BEBF-4659-A2B3-8BA8B240E55C",
+        "subtitle" : "10,000 Items",
+        "title" : "Data Summary"
+      }
+    ],
+    "dataSourceTrainingStarted",
+    [
+      {
+        "createdDate" : "2026-11-09T01:58:56Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "9CFA4E8E-F54F-4844-8B7C-EBD7232C047A",
+        "subtitle" : "BetterRest 1",
+        "title" : "Used By"
+      },
+      {
+        "createdDate" : "2026-11-09T04:14:30Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "EEE02189-2517-4B3B-B698-EA7716614BA5",
+        "subtitle" : "BetterRest 2",
+        "title" : "Used By"
+      },
+      {
+        "createdDate" : "2026-11-09T04:14:54Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "6140ACBF-A9DE-4042-94EA-36F84F784A0F",
+        "subtitle" : "BetterRest 2 copy",
+        "title" : "Used By"
+      },
+      {
+        "createdDate" : "2026-11-09T04:15:07Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "069D6C1B-DA20-4FFD-8EFC-1BC53C647A98",
+        "subtitle" : "BetterRest 2 copy 1",
+        "title" : "Used By"
+      },
+      {
+        "createdDate" : "2026-11-09T04:15:17Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "8B6448FE-916D-400C-8320-C4DB022D9BDD",
+        "subtitle" : "BetterRest 2 copy 2",
+        "title" : "Used By"
+      }
+    ]
+  ],
+  "createdDate" : "2026-11-09T01:56:08Z",
+  "dataPathRelativeToProjectURL" : "../../Downloads/HackingWithSwift-main/SwiftUI/project4-files/BetterRest.csv/",
+  "dataResult" : {
+    "columnTypes" : [
+      "Double",
+      "Double",
+      "Double",
+      "Double"
+    ],
+    "columnValues" : [
+      "31,500.00, 32,400.00, 26,100.00, 40,500.00, 19,800.00, 27,000.00, 20,700.00, 21,600.00, 41,400.00, 34,200.00, 21,600.00, 78,300.00, 32,400.00, 28,800.00, 18,900.00, 18,000.00, 28,800.00, 18,000.00, 7,200.00, 35,100.00, 24,300.00, 35,100.00, 34,200.00, 27,900.00, 30,600.00, 69,300.00, 35,100.00, 34,200.00, 34,200.00, 23,400.00",
+      "9.00, 5.00, 6.50, 8.75, 6.00, 7.50, 9.25, 6.00, 9.25, 6.75, 5.25, 9.25, 10.00, 8.75, 8.25, 6.25, 10.00, 6.25, 10.00, 9.50, 5.00, 7.50, 6.25, 8.00, 8.00, 6.50, 8.00, 10.00, 8.25, 8.00",
+      "6.00, 2.00, 10.00, 4.00, 3.00, 1.00, 1.00, 3.00, 5.00, 8.00, 3.00, 8.00, 2.00, 3.00, 1.00, 2.00, 3.00, 2.00, 1.00, 4.00, 2.00, 1.00, 1.00, 4.00, 3.00, 7.00, 4.00, 4.00, 1.00, 3.00",
+      "38,230.00, 20,180.00, 31,989.00, 35,258.00, 24,487.00, 28,300.00, 34,548.00, 24,557.00, 37,836.00, 31,340.00, 21,874.00, 40,405.00, 38,076.00, 34,265.00, 30,936.00, 24,665.00, 39,007.00, 24,578.00, 37,267.00, 37,878.00, 20,220.00, 28,400.00, 23,882.00, 32,427.00, 31,699.00, 29,670.00, 32,789.00, 39,792.00, 30,935.00, 31,701.00"
+    ],
+    "columns" : [
+      "wake",
+      "estimatedSleep",
+      "coffee",
+      "actualSleep"
+    ],
+    "createdDate" : "2026-11-09T01:56:08Z",
+    "dataSourceID" : "74627CB0-D138-44E5-9972-47294CC2B682",
+    "dataURL" : "file:///Users/munjunmin/Downloads/HackingWithSwift-main/SwiftUI/project4-files/BetterRest.csv"
+  },
+  "dataURL" : "file:///Users/munjunmin/Downloads/HackingWithSwift-main/SwiftUI/project4-files/BetterRest.csv",
+  "experimentIDs" : [
+    "89DB20A3-57AF-4B9C-9DAF-B3B638B3FDBE",
+    "AFB079F1-2C4F-4A90-AA19-6ABA37530883",
+    "FE8D6AAA-3427-4DD7-B9D2-2F5F7547D6C0",
+    "96108083-977E-4D9B-B568-F0A3E616F428",
+    "35F17104-C342-49BF-94B4-BDC675452D97",
+    "4CD41420-AA90-4B87-BC43-146D8E56B357"
+  ],
+  "id" : "74627CB0-D138-44E5-9972-47294CC2B682",
+  "modifiedDate" : "2026-11-09T04:15:54Z",
+  "pathType" : 0,
+  "preferredFilename" : "BetterRest.csv",
+  "title" : "BetterRest.csv",
+  "version" : "1.0"
+}

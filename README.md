@@ -32,7 +32,7 @@
 | Day 26–28 | [BetterRest](./BetterRest/README.md) | `Stepper`, `DatePicker`, `DateComponents`, CoreML 회귀 모델 연동 | Project 4 | 완료 |
 | Day 29–31 | [WordScramble](./WordScramble/README.md) | `List`, 앱 번들(`Bundle`) 리소스 로딩, `UITextChecker` 문자열 검증 | Project 5 | 완료 |
 | Day 32–34 | [Animations](./Animations/README.md) | 암시적/명시적 애니메이션(`withAnimation`), 커스텀 트랜지션, `DragGesture` | Project 6 | 완료 |
-| Day 35 | [Times Table](./Times%20Table/README.md) | 동적 문제 생성 로직, `ForEach` 기반 다중 선택 UI 구성 | 마일스톤 과제 |
+| Day 35 | [Times Table](./Times%20Table/README.md) | 동적 문제 생성 로직, `ForEach` 기반 다중 선택 UI 구성 | 마일스톤 과제 | 완료 |
 | Day 36-37 | [iExpense](./iExpense/README.md) | `@Observable` 클래스 상태 공유, `.sheet()` 모달, `UserDefaults` 데이터 저장, Identifiable, UUID | Project 7 | 진헹중 |
 
 ## 저장소 구조 및 관리 기준

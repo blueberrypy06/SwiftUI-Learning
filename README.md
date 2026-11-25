@@ -24,16 +24,16 @@
 
 | 구분 | 프로젝트 | 주요 학습 내용 | 분류 | 상태 |
 | :--- | :--- | :--- | :--- | :--- |
-| Day 16–18 | [WeSplit](./WeSplit) | `@State`, `Form`, `NavigationStack`, `Picker` 양방향 바인딩 | Project 1 | 완료 |
-| Day 19 | [UnitShift](./UnitShift) | `@FocusState`, `Segmented Picker`, 단위 변환 연산 로직 | 챌린지 과제 | 완료 |
-| Day 20–22 | [GuessTheFlag](./GuessTheFlag) | `VStack`/`HStack`/`ZStack` 레이아웃, 그라데이션, `Alert` 상태 제어 | Project 2 | 완료 |
-| Day 23–24 | [ViewsAndModifiers](./ViewsAndModifiers) | 뷰 합성(View Composition), 커스텀 `ViewModifier`, `@ViewBuilder` | Project 3 | 완료 |
-| Day 25 | [RockPaperScissors](./RockPaperScissors) | 조건부 뷰 렌더링, 게임 턴 및 점수 상태 관리 | 마일스톤 과제 | 완료 |
-| Day 26–28 | [BetterRest](./BetterRest) | `Stepper`, `DatePicker`, `DateComponents`, CoreML 회귀 모델 연동 | Project 4 | 완료 |
-| Day 29–31 | [WordScramble](./WordScramble) | `List`, 앱 번들(`Bundle`) 리소스 로딩, `UITextChecker` 문자열 검증 | Project 5 | 완료 |
-| Day 32–34 | [Animations](./Animations) | 암시적/명시적 애니메이션(`withAnimation`), 커스텀 트랜지션, `DragGesture` | Project 6 | 완료 |
-| Day 35 | [Times Table](./Times%20Table) | 동적 문제 생성 로직, `ForEach` 기반 다중 선택 UI 구성 | 마일스톤 과제 |
-| Day 36-37 | [iExpense](./iExpense) | `@Observable` 클래스 상태 공유, `.sheet()` 모달, `UserDefaults` 데이터 저장, Identifiable, UUID | Project 7 | 진헹중 |
+| Day 16–18 | [WeSplit](./WeSplit/README.md) | `@State`, `Form`, `NavigationStack`, `Picker` 양방향 바인딩 | Project 1 | 완료 |
+| Day 19 | [UnitShift](./UnitShift/README.md) | `@FocusState`, `Segmented Picker`, 단위 변환 연산 로직 | 챌린지 과제 | 완료 |
+| Day 20–22 | [GuessTheFlag](./GuessTheFlag/README.md) | `VStack`/`HStack`/`ZStack` 레이아웃, 그라데이션, `Alert` 상태 제어 | Project 2 | 완료 |
+| Day 23–24 | [ViewsAndModifiers](./ViewsAndModifiers/README.md) | 뷰 합성(View Composition), 커스텀 `ViewModifier`, `@ViewBuilder` | Project 3 | 완료 |
+| Day 25 | [RockPaperScissors](./RockPaperScissors/README.md) | 조건부 뷰 렌더링, 게임 턴 및 점수 상태 관리 | 마일스톤 과제 | 완료 |
+| Day 26–28 | [BetterRest](./BetterRest/README.md) | `Stepper`, `DatePicker`, `DateComponents`, CoreML 회귀 모델 연동 | Project 4 | 완료 |
+| Day 29–31 | [WordScramble](./WordScramble/README.md) | `List`, 앱 번들(`Bundle`) 리소스 로딩, `UITextChecker` 문자열 검증 | Project 5 | 완료 |
+| Day 32–34 | [Animations](./Animations/README.md) | 암시적/명시적 애니메이션(`withAnimation`), 커스텀 트랜지션, `DragGesture` | Project 6 | 완료 |
+| Day 35 | [Times Table](./Times%20Table/README.md) | 동적 문제 생성 로직, `ForEach` 기반 다중 선택 UI 구성 | 마일스톤 과제 |
+| Day 36-37 | [iExpense](./iExpense/README.md) | `@Observable` 클래스 상태 공유, `.sheet()` 모달, `UserDefaults` 데이터 저장, Identifiable, UUID | Project 7 | 진헹중 |
 
 ## 저장소 구조 및 관리 기준
 - 모든 실습 프로젝트는 최상위 루트의 단일 `.git` 저장소로 통합 관리합니다.

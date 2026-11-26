@@ -72,7 +72,7 @@ iPhone 18 Pro · iOS 27.2 · 라이트 모드 · 상태 표시줄 9:41에서 직
 
 | 빈 지출 목록 | Coffee · 개인 지출 4,500원 입력 | 종류별 합계와 금액별 색상 |
 | :---: | :---: | :---: |
-| <img src="./Screenshots/01-empty-list.png" alt="iExpense — 빈 지출 목록" width="240"> | <img src="./Screenshots/02-add-expense.png" alt="iExpense — Coffee · 개인 지출 4,500원 입력" width="240"> | <img src="./Screenshots/03-expense-list.png" alt="iExpense — 종류별 합계와 금액별 색상" width="240"> |
+| <img src="./Screenshots/01-empty-list.png" alt="iExpense — 빈 지출 목록" width="240"> | <img src="./Screenshots/02-add-expense.png" alt="iExpense — Coffee · 개인 지출 4,500원 입력" width="240"> | <img src="./Screenshots/03-expense-list_v2.png" alt="iExpense — 종류별 합계와 금액별 색상" width="240"> |
 
 ## 향후 개선 방향
 

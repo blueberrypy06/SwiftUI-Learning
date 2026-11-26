@@ -13,13 +13,11 @@ struct ExpenseItem: Identifiable, Codable {
     let type: String
     let amount: Double
     
-    var amountForegruondColor: Color {
-        if self.amount >= 10_000.0 {
-            if self.amount >= 50_000.0 {
-                return .red
-            } else {
-                return .orange
-            }
+    var amountForegroundColor: Color {
+        if amount >= 50_000 {
+            return .red
+        } else if amount >= 10_000 {
+            return .orange
         } else {
             return .green
         }
@@ -35,6 +33,16 @@ class Expenses {
             }
         }
     }
+    
+    var personalExpenses: [ExpenseItem] {
+        self.items.filter { $0.type == "Personal" }
+    }
+
+    var businessExpenses: [ExpenseItem] {
+        self.items.filter { $0.type == "Business" }
+    }
+    
+    
     var totalAmount: Double {
         var result: Double = 0.0
         for item in items {
@@ -66,6 +74,14 @@ class Expenses {
         return result
     }
     
+    func removeItems(at offsets: IndexSet, from items: [ExpenseItem]) {
+        let ids = offsets.map { items[$0].id }
+
+        self.items.removeAll {
+            ids.contains($0.id)
+        }
+    }
+    
     init() {
         if let savedItems = UserDefaults.standard.data(forKey: "Items") {
             if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
@@ -85,12 +101,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Amout") {
+                // 합계 금액
+                Section("Summary") {
                     HStack {
                         VStack {
                             Text("Total")
                                 .font(.headline)
-                            Text("\(expenses.totalAmount.formatted(.currency(code: "KRW")))")
+                            Text("\(expenses.totalAmount.formatted(.currency(code: Locale.current.currency?.identifier ?? "KRW")))")
                         }
                         
                         Spacer()
@@ -98,7 +115,7 @@ struct ContentView: View {
                         VStack {
                             Text("Personal")
                                 .font(.headline)
-                            Text("\(expenses.personalAmount.formatted(.currency(code: "KRW")))")
+                            Text("\(expenses.personalAmount.formatted(.currency(code: Locale.current.currency?.identifier ?? "KRW")))")
                         }
                         .foregroundStyle(.cyan)
                         
@@ -107,29 +124,57 @@ struct ContentView: View {
                         VStack {
                             Text("Business")
                                 .font(.headline)
-                            Text("\(expenses.businessAmount.formatted(.currency(code: "KRW")))")
+                            Text("\(expenses.businessAmount.formatted(.currency(code: Locale.current.currency?.identifier ?? "KRW")))")
                         }
                         .foregroundStyle(.orange)
                     }
                 }
                 
-                ForEach(expenses.items) { item in
-                    HStack(spacing: 20) {
-                        Image(systemName: item.type == "Personal" ? "person" : "suitcase")
-                            .font(.title2)
-                            .foregroundStyle(item.type == "Personal" ? Color.cyan : Color.orange)
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
+                // 개인
+                Section("PERSONAL"){
+                    ForEach(expenses.personalExpenses) { item in
+                        HStack(spacing: 20) {
+                            Image(systemName: "person")
+                                .font(.title2)
+                                .foregroundStyle(Color.cyan)
+                            VStack(alignment: .leading) {
+                                Text(item.name)
+                                    .font(.headline)
+                                Text(item.type)
+                            }
+                            
+                            Spacer()
+                            Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "KRW"))
+                                .foregroundStyle(item.amountForegroundColor)
                         }
-
-                        Spacer()
-                        Text(item.amount, format: .currency(code: "KRW"))
-                            .foregroundStyle(item.amountForegruondColor)
+                    }
+                    .onDelete { offsets in
+                        expenses.removeItems(at: offsets, from: expenses.personalExpenses)
                     }
                 }
-                .onDelete(perform: removeItems)
+                
+                // 업무
+                Section("BUSINESS"){
+                    ForEach(expenses.businessExpenses) { item in
+                        HStack(spacing: 20) {
+                            Image(systemName: "suitcase")
+                                .font(.title2)
+                                .foregroundStyle(Color.orange)
+                            VStack(alignment: .leading) {
+                                Text(item.name)
+                                    .font(.headline)
+                                Text(item.type)
+                            }
+                            
+                            Spacer()
+                            Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "KRW"))
+                                .foregroundStyle(item.amountForegroundColor)
+                        }
+                    }
+                    .onDelete { offsets in
+                        expenses.removeItems(at: offsets, from: expenses.businessExpenses)
+                    }
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
@@ -141,10 +186,6 @@ struct ContentView: View {
                 AddView(expenses: expenses)
             }
         }
-    }
-    
-    func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
     }
 }
 

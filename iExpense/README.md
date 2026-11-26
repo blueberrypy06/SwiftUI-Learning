@@ -1,6 +1,6 @@
 # iExpense
 
-> [100 Days of SwiftUI](https://www.hackingwithswift.com/100/swiftui) · Day 36–37 · Project 7 · 진행 중
+> [100 Days of SwiftUI](https://www.hackingwithswift.com/100/swiftui) · Day 36–38 · Project 7
 
 개인 지출과 업무 지출을 기록하고 앱을 재실행해도 내역을 유지하는 지출 관리 앱입니다.
 
